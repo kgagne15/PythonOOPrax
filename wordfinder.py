@@ -11,6 +11,7 @@
 #further study 5 problem)
 
 #used solution for help, but not entirely
+#helpful link: https://www.w3schools.com/python/ref_random_randint.asp
 
 import random
 
