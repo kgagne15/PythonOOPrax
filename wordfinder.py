@@ -10,6 +10,8 @@
 #6. this will need to strip the /n from each word (like the python function
 #further study 5 problem)
 
+#used solution for help, but not entirely
+
 import random
 
 class WordFinder:
@@ -37,9 +39,26 @@ class WordFinder:
             line = line.rstrip()
             word = (line)
             word_lst.append(word)
+        file.close()
         return word_lst
     
     def random(self):
         """selects random index and returns the word from words at that index"""
         rand_word_idx = random.randint(1, self.num_words)
         return self.words[rand_word_idx]
+
+
+class SpecialWordFinder(WordFinder):
+    def parse(self):
+        """opens file and returns all words not commented out 
+        and removes all spaces between words"""
+        file = open(f'{self.path}.txt', 'r')
+        word_lst = []
+        for line in file:
+            if line[0] != '#' and line.rstrip():
+                line = line.rstrip()
+                word_lst.append(line)
+        file.close()
+        return word_lst
+                
+        
